@@ -20,12 +20,22 @@
   z-index: 10!important;
 }
 
+.container {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 20px auto;
+  justify-items: center;
+}
+
 .login-page-wrapp {
   height: 100vh;
 }
 
 .login-form-wrap {
   width: 50%;
+  padding: 30px;
 }
 
 .login-form-wrap .form-card {
@@ -59,4 +69,11 @@
 
 .login-greeting-screen .login-greeting-screen-description {
   line-height: 1.4;
+}
+
+@media screen and (max-width: 1299px) {
+  .login-page-wrapp {
+    flex-direction: column;
+    align-items: center;
+  }
 }

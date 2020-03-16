@@ -7,7 +7,6 @@ async function login(email, password) {
       password
     }));
     
-    console.log(response);
     return response;
   } catch (err) {
     console.log(err);
@@ -19,7 +18,6 @@ async function register(obj) {
   try {
     const response = await axios.post(`/auth/signup`, JSON.stringify(obj));
     
-    console.log(response);
     return response;
   } catch (err) {
     console.log(err);

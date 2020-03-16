@@ -61,11 +61,11 @@ async function onSubmit() {
     showLoader();
     await login(inputEmail.value, inputPassword.value);
     removePreloader();
-    await getNews();
     formLogin.reset();
     notify({ 
       msg: 'Login success.',
       className: 'alert-success' });
+    await getNews();
   } catch (err) {
     notify({ 
       msg: 'No user found. Please, register.',

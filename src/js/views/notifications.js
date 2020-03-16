@@ -14,7 +14,7 @@ function getAlertIndex() {
 
 function notifyContainerTemplate() {
   return `
-    <div class="notify-container" style="position: fixed; top: 20px; right: 20px; z-index: 9;"></div>
+    <div class="notify-container" style="position: fixed; top: 20px; left: 20px; z-index: 9;"></div>
   `;
 }
 
@@ -23,7 +23,7 @@ function creatNotifyContainer() {
   document.body.insertAdjacentHTML('afterbegin', template);
 }
 
-function notify({ msg = 'Info message', className = 'alert-info', timeout = 2000} = {}) {
+function notify({ msg = 'Info message', className = 'alert-info', timeout = 5000} = {}) {
   if (!getContainer()) {
     creatNotifyContainer();
   }

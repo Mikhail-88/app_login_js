@@ -8,11 +8,23 @@ async function login(email, password) {
     }));
     
     console.log(response);
-    return response.data;
+    return response;
   } catch (err) {
     console.log(err);
     return Promise.reject(err);
   }
 }
 
-export default login;
+async function register(obj) {
+  try {
+    const response = await axios.post(`/auth/signup`, JSON.stringify(obj));
+    
+    console.log(response);
+    return response;
+  } catch (err) {
+    console.log(err);
+    return Promise.reject(err);
+  }
+}
+
+export { login, register };

@@ -1,3 +1,25 @@
+.hidden-form {
+  display: none;
+}
+
+.ui-autocomplete {
+  max-height: 180px!important;
+  overflow: hidden;
+}
+
+.color {
+  background-color: #007bff!important;
+  color: #fff!important;
+}
+
+.progress {
+  width: 100%!important;
+  position: fixed!important;
+  top: 0!important;
+  left: 0!important;
+  z-index: 10!important;
+}
+
 .login-page-wrapp {
   height: 100vh;
 }

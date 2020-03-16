@@ -6,7 +6,7 @@ function inputErrorTemplate(msg) {
 
 function showInputError(el) {
   const parent = el.parentElement;
-  const msg = el.dataset.invalidMessage || 'Invalid input';
+  const msg = el.dataset.invalidMessage || 'Invalid text';
   const template = inputErrorTemplate(msg);
 
   el.classList.add('is-invalid');

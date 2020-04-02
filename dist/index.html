@@ -9,73 +9,111 @@
 <link href="./style.css" rel="stylesheet"></head>
 
 <body>
-  <div class="login-page-wrapp d-flex">
+  <div class="login-page-wrapp">
     <div class="login-form-wrap d-flex align-items-center">
       <div class="form-card card ml-auto shadow">
-
         <nav>
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link color" id="tab-login" data-toggle="tab" href="#nav-login" 
-              role="tab" aria-controls="nav-login" aria-selected="true">Login</a>
-            <a class="nav-item nav-link active" id="tab-register" data-toggle="tab" href="#nav-register"
-              role="tab" aria-controls="nav-register" aria-selected="false">Register</a>
+            <a class="nav-item nav-link color" 
+              id="tab-login" 
+              data-toggle="tab" 
+              href="#nav-login" 
+              role="tab" 
+              aria-controls="nav-login" 
+              aria-selected="true">
+              Login
+            </a>
+            <a class="nav-item nav-link active" 
+              id="tab-register" 
+              data-toggle="tab" 
+              href="#nav-register"
+              role="tab" 
+              aria-controls="nav-register" 
+              aria-selected="false">
+              Register
+            </a>
           </div>
         </nav>
-
         <div class="card-body login-content">
           <h4 class="card-title">Please Login</h4>
           <form name="loginForm">
             <div class="form-group">
               <label for="email">Email address</label>
-              <input type="email" class="form-control" id="emailLog" aria-describedby="emailHelp" 
-                placeholder="Enter email" data-required="email" 
+              <input type="email" 
+                class="form-control" 
+                id="emailLog" 
+                aria-describedby="emailHelp" 
+                placeholder="Enter email" 
+                data-required="email" 
                 data-invalid-message="Please, provide valid email example@example.com" />
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" class="form-control" id="passwordLog" placeholder="Password"
+              <input type="password" 
+                class="form-control" 
+                id="passwordLog" 
+                placeholder="Password"
                 data-required="password" 
                 data-invalid-message="Please, enter at least 8 characters, only numbers or letters" />
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
-
         <div class="card-body register-content hidden-form">
           <h4 class="card-title">Please Register</h4>
           <form name="registerForm">
             <div class="row">
               <div class="form-group col">
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                <input type="email" 
+                  class="form-control" 
+                  id="email" 
+                  aria-describedby="emailHelp"
                   placeholder="Enter your email"
-                  data-required="email" data-invalid-message="Please, provide valid email example@example.com" />
+                  data-required="email" 
+                  data-invalid-message="Please, provide valid email example@example.com" />
               </div>
               <div class="form-group col">
-                <input type="password" class="form-control" id="password" placeholder="Password"
+                <input type="password" 
+                  class="form-control" 
+                  id="password" 
+                  placeholder="Password"
                   data-required="password"
                   data-invalid-message="Please, enter at least 8 characters, only numbers or letters" />
               </div>
             </div>
             <div class="row">
               <div class="form-group col">
-                <input type="nickname" class="form-control" id="nickname" placeholder="Enter your nickname"
+                <input type="nickname" 
+                  class="form-control" 
+                  id="nickname" 
+                  placeholder="Enter your nickname"
                   data-required="nickname"
                   data-invalid-message="Please, enter at least 3 characters, only letters" />
               </div>
               <div class="form-group col">
-                <input type="first_name" class="form-control" id="first_name" placeholder="Enter your First Name"
+                <input type="first_name" 
+                  class="form-control" 
+                  id="first_name" 
+                  placeholder="Enter your First Name"
                   data-required="first_name"
                   data-invalid-message="Please, enter at least 3 characters, only letters" />
               </div>
             </div>
             <div class="row">
               <div class="form-group col">
-                <input type="last_name" class="form-control" id="last_name" placeholder="Enter your Last Name"
+                <input type="last_name" 
+                  class="form-control" 
+                  id="last_name" 
+                  placeholder="Enter your Last Name"
                   data-required="last_name"
                   data-invalid-message="Please, enter at least 3 characters, only letters" />
               </div>
               <div class="form-group col">
-                <input type="phone" class="form-control" id="phone" placeholder="Phone" data-required="phone"
+                <input type="phone" 
+                  class="form-control" 
+                  id="phone" 
+                  placeholder="Phone" 
+                  data-required="phone"
                   data-invalid-message="Please, enter 10 characters, only numbers" />
               </div>
             </div>
@@ -90,17 +128,28 @@
             </div>
             <div class="row">
               <div class="form-group col">
-                <input type="country" class="form-control" id="country" placeholder="Country" data-required="country"
-                data-invalid-message="Please, enter at least 2 characters, only letters" />
+                <input type="country" 
+                  class="form-control" 
+                  id="country" 
+                  placeholder="Country" 
+                  data-required="country"
+                  data-invalid-message="Please, enter at least 2 characters, only letters" />
               </div>
               <div class="form-group col">
-                <input type="city" class="form-control" id="city" placeholder="City" data-required="city"
-                data-invalid-message="Please, enter at least 2 characters, only letters" />
+                <input type="city" 
+                  class="form-control" 
+                  id="city" 
+                  placeholder="City" 
+                  data-required="city"
+                  data-invalid-message="Please, enter at least 2 characters, only letters" />
               </div>
             </div>
             <div class="row">
               <div class="form-group col">
-                <input type="date" class="form-control" id="date_of_birth" placeholder="date_of_birth_day"/>
+                <input type="date" 
+                  class="form-control" 
+                  id="date_of_birth" 
+                  placeholder="date_of_birth_day"/>
               </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -113,13 +162,47 @@
       <div class="login-greeting-screen-text">
         <h1 class="login-greeting-screen-title">Welcome to my app</h1>
         <p class="login-greeting-screen-description">
-          You can Register yourself and then go through the authorization in the Login tab or use my login and password to check the working of the application.<br>
+          You can Register yourself (need to use a real email) and then go through the authorization in the Login tab or use my login and password to check the working of the application.<br><br>
           <strong>Email:</strong> misha.study.kiev@gmail.com<br>
           <strong>Password:</strong> study888 
         </p>
       </div>
     </div>
   </div>
-<script type="text/javascript" src="polyfill.214d32d7aa03499abd1e.js"></script><script type="text/javascript" src="app.214d32d7aa03499abd1e.js"></script></body>
 
+  <section class="news_section">
+    <nav class="nav-news nav">
+      <a class="nav-link nav-link-news" href="#">News App</a>
+      <button type="button" class="btn btn-circle" title="Exit" id="btnExit"></button>
+    </nav>
+    <div class="search-controls">
+      <div class="card-body">
+        <form name="newsControls">
+          <div class="card-content">
+            <span class="search-title">Search news</span>
+            <div class="form-group">
+              <select name="country-news" id="country-news" class="custom-select">
+                <option value="ua">Ukraine</option>
+                <option value="us">United States</option>
+              </select>
+              <label class="search-label">Choose your country</label>
+            </div>
+            <div class="form-group">
+              <input type="text" 
+                class="form-control" 
+                name="search" 
+                placeholder="Search news"/>
+            </div>
+          </div>
+            <button class="btn btn-primary" type="submit" name="action">
+              Search
+            </button>
+        </form>
+      </div>
+    </div>
+    <div class="news-container">
+    </div>
+  </section>
+
+<script type="text/javascript" src="polyfill.e54b38d376b65b0f1944.js"></script><script type="text/javascript" src="app.e54b38d376b65b0f1944.js"></script></body>
 </html>

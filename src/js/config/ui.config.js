@@ -18,6 +18,10 @@ const UI = {
   city: document.getElementById('city'),
   date_of_birth: document.getElementById('date_of_birth'),
   gender: document.querySelector('.custom-select'),
+  loginBlock: document.querySelector('.login-page-wrapp'),
+  newsBlock: document.querySelector('.news_section'),
+  formNews: document.forms['newsControls'],
+  btnExit: document.getElementById('btnExit'),
 };
 
 export default UI;

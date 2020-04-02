@@ -5,17 +5,24 @@ import validate from './helpers/validate';
 import { showInputError, removeInputError } from './views/form';
 import { login, register } from './services/auth.service';
 import notify from './views/notifications';
-import getNews from './services/news.service';
+import newsService from './services/news.service';
 import { showLoader, removePreloader } from './helpers/preloader';
+import renderNews from './helpers/renderNews';
 
 const { navTab, tabLogin, tabRegister, loginContent, registerContent, formLogin, inputEmail, inputPassword, formReg, inputRegEmail, inputRegPassword, nickname, first_name, last_name, phone, country, city, date_of_birth,
-gender } = UI;
+gender, loginBlock, newsBlock, formNews, btnExit } = UI;
 const inputsLogin = [inputEmail, inputPassword];
 const inputsRegister = [inputRegEmail, inputRegPassword, nickname, first_name, last_name, phone, country, city];
+const countrySelect = formNews.elements['country-news'];
+const searchInput = formNews.elements['search'];
 
 // Events
-inputsLogin.forEach(elem => elem.addEventListener('focus', () => removeInputError(elem)));
-inputsRegister.forEach(elem => elem.addEventListener('focus', () => removeInputError(elem)));
+[...inputsLogin, ...inputsRegister].forEach(elem => elem.addEventListener('focus', () => removeInputError(elem)));
+
+btnExit.addEventListener('click', () => {
+  newsBlock.style.display = 'none';
+  loginBlock.style.display = 'flex';
+});
 
 navTab.addEventListener('click', (e) => {
   e.preventDefault();
@@ -43,6 +50,52 @@ formReg.addEventListener('submit', (e) => {
   onSubmitRegister();
 });
 
+formNews.addEventListener('submit', (e) => {
+  e.preventDefault();
+  loadNews();
+});
+
+function loadNews() {
+  const country = countrySelect.value;
+  const searchText = searchInput.value;
+
+  if (!searchText) {
+    showLoader();
+    newsService.topHeadlines(country)
+      .then(data => {
+        removePreloader();
+        renderNews(data.articles);
+      })
+      .catch(err => {
+        notify({ 
+          msg: `Something wrong... ${err}`,
+          className: 'alert-danger' });
+        removePreloader();
+      });
+  } else {
+    showLoader();
+    newsService.everything(searchText)
+      .then(data => {
+        removePreloader();
+        if (!data.articles.length) {
+          notify({ 
+            msg: 'Nothing found for this request.',
+            className: 'alert-danger' });
+          searchInput.value = '';
+          return;
+        }
+        renderNews(data.articles);
+        searchInput.value = '';
+      })
+      .catch(err => {
+        notify({ 
+          msg: `Something wrong... ${err}`,
+          className: 'alert-danger' });
+        removePreloader();
+      });
+    }
+}
+
 // Handlers
 async function onSubmit() {
   const isValidForm = inputsLogin.every(elem => {
@@ -65,7 +118,9 @@ async function onSubmit() {
     notify({ 
       msg: 'Login success.',
       className: 'alert-success' });
-    await getNews();
+    loginBlock.style.display = 'none';
+    newsBlock.style.display = 'block';
+    loadNews();
   } catch (err) {
     notify({ 
       msg: 'No user found. Please, register.',

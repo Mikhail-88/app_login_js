@@ -1,5 +1,9 @@
 function renderNews(news) {
-  const newsContainer = document.querySelector('.login-page-wrapp');
+  const newsContainer = document.querySelector('.news-container');
+
+  if (newsContainer.children.length) {
+    clearContainer(newsContainer);
+  }
 
   let fragment = '';
 
@@ -9,21 +13,30 @@ function renderNews(news) {
   });
 
   newsContainer.insertAdjacentHTML('beforeend', `
-    <div class="container">${fragment}</div>
+    <div class="news_wrapper">${fragment}</div>
   `);
+}
+
+function clearContainer(container) {
+  let child = container.lastElementChild;
+
+  while (child) {
+    container.removeChild(child);
+    child = container.lastElementChild;
+  }
 }
 
 function newsTemplate(oneNews) {
   const { urlToImage, title, url, description } = oneNews;
-  const noImage = './image/image-not-found-big-300x169.png';
+  const noImage = 'https://stockpictures.io/wp-content/uploads/2020/01/image-not-found-big-768x432.png';
 
   return `
-    <div class="card" style="width: 18rem;">
+    <div class="card">
       <img src="${urlToImage || noImage}" class="card-img-top" alt="img">
       <div class="card-body">
         <h5 class="card-title">${title || ''}</h5>
         <p class="card-text">${description || ''}</p>
-      <a href="${url}" class="btn btn-primary">Read more</a>
+      <a href="${url}" class="btn btn-info" target="_blank">Read more</a>
       </div>
     </div>
   `;

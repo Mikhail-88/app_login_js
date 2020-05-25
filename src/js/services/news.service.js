@@ -1,6 +1,6 @@
 const newsService = (function() {
   const apiKey = 'ba8620836f104b76bbdaad87e85482d0';
-  const apiUrl = 'https://newsapi.org/v2';
+  const apiUrl = 'https://news-api-v2.herokuapp.com';
 
   return {
     async topHeadlines(country = 'ua') {
